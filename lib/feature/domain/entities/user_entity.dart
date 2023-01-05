@@ -1,14 +1,16 @@
 import 'package:equatable/equatable.dart';
+import 'package:jsonplaceholder/feature/domain/entities/adress_entity.dart';
+import 'package:jsonplaceholder/feature/domain/entities/company_entity.dart';
 
 class UserEntity extends Equatable {
   final int id;
   final String name;
   final String username;
   final String email;
-  final Address address;
+  final AddressEntity address;
   final String phone;
   final String website;
-  final Company company;
+  final CompanyEntity company;
 
   const UserEntity(
       {required this.id,
@@ -23,29 +25,4 @@ class UserEntity extends Equatable {
   @override
   List<Object> get props =>
       [id, name, username, email, address, phone, website, company];
-}
-
-class Address {
-  String? street;
-  String? suite;
-  String? city;
-  String? zipcode;
-  Geo? geo;
-
-  Address({this.street, this.suite, this.city, this.zipcode, this.geo});
-}
-
-class Geo {
-  String? lat;
-  String? lng;
-
-  Geo({this.lat, this.lng});
-}
-
-class Company {
-  String? name;
-  String? catchPhrase;
-  String? bs;
-
-  Company({this.name, this.catchPhrase, this.bs});
 }
